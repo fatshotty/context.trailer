@@ -2,5 +2,6 @@
 <settings>
     <category label="32001">
         <setting label="32002" type="bool" id="windowed" default="false"/>
+        <setting label="32003" type="bool" id="test" default="false"/>
     </category>
 </settings>

@@ -16,3 +16,7 @@ msgctxt "#32002"
 msgid "Play trailer in a window"
 msgstr ""
 
+msgctxt "#32003"
+msgid "Search trailer"
+msgstr ""
+
