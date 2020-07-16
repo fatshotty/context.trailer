@@ -16,25 +16,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import xbmc
+import xbmcgui
 import xbmcaddon
 import sys
-import web_pdb
-
-web_pdb.set_trace()
+# import web_pdb; web_pdb.set_trace()
 
 ADDON = xbmcaddon.Addon()
 
 
 def main():
-    # windowed = ADDON.getSetting("windowed") == "false"
-    # info = sys.listitem.getVideoInfoTag()
-    # trailer = info.getTrailer()
-    # if windowed:
-    #     xbmc.executebuiltin("PlayMedia(%s)" % (trailer))
-    # else:
-    #     xbmc.executebuiltin("PlayMedia(%s,1)" % (trailer))
-    message = "Clicked on '{}'".format(sys.listitem.getLabel())
-    xbmcgui.Dialog().notification("Hello context items!", message)
+    videoTag = sys.listitem.getVideoInfoTag()
+    if videoTag:
+        title = videoTag.getTitle()
+        year = videoTag.getYear()
+        search = "{} ({}) trailer ita".format(title, year)
+    # xbmcgui.Dialog().notification("Searching trailer", "{} ({})".format(title, year) )
+    xbmc.executebuiltin('ActivateWindow(10025,"plugin://plugin.video.youtube/kodion/search/query?q={}")'.format(search) )
 
 
 if __name__ == '__main__':

@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="context.trailer2" name="Play Trailer 4" version="1.0.0" provider-name="fatshotty">
+<addon id="context.play-search-trailer" name="Play or Search Trailer" version="1.0.0" provider-name="fatshotty">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
     <import addon="script.module.web-pdb" />
+    <import addon="plugin.video.youtube" />
   </requires>
   <extension point="kodi.context.item" library="search.py">
-    <item >
-      <label>30003</label>
-      <visible>true</visible>
-    </item>
+    <menu id="kodi.core.main">
+      <item library="addon.py">
+        <label>32000</label>
+        <visible>String.IsEqual(ListItem.dbtype,movie) + !String.IsEmpty(ListItem.Trailer)</visible>
+      </item>
+      <item library="search.py">
+        <label>32003</label>
+        <visible>String.IsEqual(ListItem.dbtype,movie) + String.IsEmpty(ListItem.Trailer)</visible>
+      </item>
+  </menu>
   </extension>
   <extension point="kodi.addon.metadata">
     <platform>all</platform>
-    <summary lang="en">Play 2 a movie trailer from the context menu in the library.</summary>
-    <description lang="en">Adds a context menu entry for movies that have a trailer in the database. Choose windowed or fullscreen play in the settings.</description>
+    <summary lang="en">Play or search on youtube a movie trailer from the context menu in the library.</summary>
+    <description lang="en">Adds a context menu entry for movies that have a trailer in the database or search for it on youtube</description>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
     <forum></forum>
-    <source>https://github.com/BigNoid/context.trailer</source>
+    <source>https://github.com/fatshotty/context.trailer</source>
   </extension>
 </addon>
