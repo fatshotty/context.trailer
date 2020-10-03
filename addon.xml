@@ -13,7 +13,7 @@
       </item>
       <item library="search.py">
         <label>32003</label>
-        <visible>String.IsEqual(ListItem.dbtype,movie) + String.IsEmpty(ListItem.Trailer)</visible>
+        <visible>String.IsEqual(ListItem.dbtype,movie)</visible>
       </item>
   </menu>
   </extension>
